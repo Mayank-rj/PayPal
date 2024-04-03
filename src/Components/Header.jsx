@@ -10,7 +10,6 @@ export default function Header() {
         Let's talk about how our payment solutions can help <br /> grow your
         business.
       </p>
-      <p></p>
     </div>
   );
 }

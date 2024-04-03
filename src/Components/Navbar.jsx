@@ -48,11 +48,11 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="ml-auto md:inline-block hidden">
-            <button className="border-2 border-paypalBlue-800 p-2 px-8 mx-2 rounded-3xl">
+            <button className="border-2 border-paypalBlue-800 p-2 px-8 mx-2 rounded-3xl hover:bg-paypalBlue-800 hover:text-white">
               Log In
             </button>
             <button
-              className="text-white border-2 border-paypalBlue-800 p-2 px-7 mx-2 rounded-3xl bg-paypalBlue-800"
+              className="text-white border-2 border-paypalBlue-800 p-2 px-7 mx-2 rounded-3xl bg-paypalBlue-800 hover:bg-transparent hover:text-black hover:border-paypalBlue-800"
             >
               Sign Up
             </button>
