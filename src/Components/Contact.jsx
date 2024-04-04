@@ -4,8 +4,9 @@ import {
   faArrowRightLong,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { dropdown } from "../assets/data/dropdown";
+import axios from "axios";
 
 export default function Contact() {
   const [countryDrop, setCountryDrop] = useState(false);
@@ -15,6 +16,21 @@ export default function Contact() {
   const [countryName, setCountryName] = useState("United States");
   const [saleName, setSaleName] = useState("Select Annual Sales");
   const [yesName, setYesName] = useState("No");
+  
+  const [countryList, setCountryList] = useState([]);
+  const fetchCountries = async () => {
+    try {
+      const res = await axios.get("https://restcountries.com/v2/all?fields=name");
+      console.log(res.data);
+      setCountryList(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
 
   const contactDetailStyle = {
     h4: "tracking-tight text-xl mb-4",
@@ -73,47 +89,48 @@ export default function Contact() {
             Tell us a little about your business so we can connect you with the
             right people.
           </h4>
-          <form
-            className="flex flex-col gap-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+          <form className="flex flex-col gap-4">
             <input
               type="text"
               className={inputStyle}
               placeholder="First name*"
+              required
             />
             <input
               type="text"
               className={inputStyle}
               placeholder="Last name*"
+              required
             />
             <input
               type="text"
               className={inputStyle}
               placeholder="Work email*"
+              required
             />
             <input
               type="text"
               className={inputStyle}
               placeholder="Phone number*"
+              required
             />
             <input
               type="text"
               className={inputStyle}
               placeholder="Company name*"
+              required
             />
             <input
               type="text"
               className={inputStyle}
               placeholder="Company website*"
+              required
             />
             <div className="border rounded border-slate-400 focus:border-paypalBlue-400 outline-none pt-7 pb-1 px-4 relative">
               <div className="text-slate-500 absolute top-1 left-4">
                 Country*
               </div>
-              <button
+              <div
                 onClick={() => {
                   setCountryDrop((prev) => !prev);
                 }}
@@ -125,19 +142,19 @@ export default function Contact() {
                 ) : (
                   <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
                 )}
-              </button>
+              </div>
               {countryDrop && (
-                <div>
-                  {dropdown.country.map((item, index) => (
+                <div className="max-h-56 overflow-y-auto">
+                  {countryList.map((item, index) => (
                     <div
                       key={index}
                       className="cursor-pointer hover:bg-paypalBlue-200"
                       onClick={() => {
-                        setCountryName(item);
+                        setCountryName(item.name);
                         setCountryDrop((prev) => !prev);
                       }}
                     >
-                      {item}
+                      {item.name}
                     </div>
                   ))}
                 </div>
@@ -148,7 +165,7 @@ export default function Contact() {
               <div className="text-slate-500 absolute top-1 left-4 text-xs md:text-base">
                 Estimated annual sales*
               </div>
-              <button
+              <div
                 onClick={() => setSaleDrop((prev) => !prev)}
                 className="w-full flex justify-between"
               >
@@ -158,7 +175,7 @@ export default function Contact() {
                 ) : (
                   <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
                 )}
-              </button>
+              </div>
               {saleDrop && (
                 <div>
                   {dropdown.sale.map((item, index) => (
@@ -178,10 +195,10 @@ export default function Contact() {
             </div>
 
             <div className="border rounded border-slate-400 focus:border-paypalBlue-400 outline-none pt-7 pb-1 px-4 relative">
-              <div className="text-slate-500 absolute top-1 left-4 text-xs md:text-base">
+              <div className="text-slate-500 absolute top-1 left-4 text-xs xl:text-base">
                 Do you already have a PayPal Business account?*
               </div>
-              <button
+              <div
                 onClick={() => setYesDrop((prev) => !prev)}
                 className="w-full flex justify-between"
               >
@@ -191,15 +208,17 @@ export default function Contact() {
                 ) : (
                   <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
                 )}
-              </button>
+              </div>
               {yesDrop && (
                 <div>
                   {dropdown.yes.map((item, index) => (
-                    <div key={index} className="cursor-pointer hover:bg-paypalBlue-200"
-                    onClick={() => {
-                      setYesName(item);
-                      setYesDrop((prev) => !prev);
-                    }}
+                    <div
+                      key={index}
+                      className="cursor-pointer hover:bg-paypalBlue-200"
+                      onClick={() => {
+                        setYesName(item);
+                        setYesDrop((prev) => !prev);
+                      }}
                     >
                       {item}
                     </div>
@@ -208,11 +227,10 @@ export default function Contact() {
               )}
             </div>
             <div>
-              <input type="checkbox" id="check" className="mr-4" />
+              <input type="checkbox" id="check" className="mr-4" required />
               <label htmlFor="check" className="text-sm">
-                I have read and accepted the{" "}
+                I have read and accepted the
                 <a href="/" className="text-paypalBlue-400">
-                  {" "}
                   PayPal Privacy Policy
                 </a>
                 .
