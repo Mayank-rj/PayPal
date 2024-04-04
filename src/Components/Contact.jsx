@@ -145,7 +145,7 @@ export default function Contact() {
             </div>
 
             <div className="border rounded border-slate-400 focus:border-paypalBlue-400 outline-none pt-7 pb-1 px-4 relative">
-              <div className="text-slate-500 absolute top-1 left-4">
+              <div className="text-slate-500 absolute top-1 left-4 text-xs md:text-base">
                 Estimated annual sales*
               </div>
               <button
