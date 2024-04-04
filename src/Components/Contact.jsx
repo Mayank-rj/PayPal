@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { dropdown } from "../assets/data/dropdown";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   const [countryDrop, setCountryDrop] = useState(false);
@@ -16,11 +17,14 @@ export default function Contact() {
   const [countryName, setCountryName] = useState("United States");
   const [saleName, setSaleName] = useState("Select Annual Sales");
   const [yesName, setYesName] = useState("No");
-  
+
+  //fetching countries list from api
   const [countryList, setCountryList] = useState([]);
   const fetchCountries = async () => {
     try {
-      const res = await axios.get("https://restcountries.com/v2/all?fields=name");
+      const res = await axios.get(
+        "https://restcountries.com/v2/all?fields=name"
+      );
       console.log(res.data);
       setCountryList(res.data);
     } catch (error) {
@@ -28,10 +32,14 @@ export default function Contact() {
     }
   };
 
+
+  //calling api function
   useEffect(() => {
     fetchCountries();
   }, []);
 
+
+  //some variables for using in class for tailwaind
   const contactDetailStyle = {
     h4: "tracking-tight text-xl mb-4",
     a: "text-paypalBlue-400 text-xl font-semibold",
@@ -53,35 +61,37 @@ export default function Contact() {
           <h4 className={contactDetailStyle.h4}>
             Want to speak with Sales right away?
           </h4>
-          <a href="/" className={contactDetailStyle.a}>
+          <Link to="/" className={contactDetailStyle.a}>
             Call 877-794-7639
-          </a>
+          </Link>
         </div>
 
         <div>
           <h4 className={contactDetailStyle.h4}>
             Need help with your existing account?
           </h4>
-          <a href="/" className={contactDetailStyle.a}>
+          <Link to="/" className={contactDetailStyle.a}>
             Visit out Help Center
             <span className="bg-paypalBlue-200 rounded-full p-2 ml-2">
               <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
             </span>
-          </a>
+          </Link>
         </div>
 
         <div>
           <h4 className={contactDetailStyle.h4}>
             Want to helpful business insights?
           </h4>
-          <a href="/" className={contactDetailStyle.a}>
+          <Link to="/" className={contactDetailStyle.a}>
             Visit out Business Resource Center
             <span className="bg-paypalBlue-200 rounded-full p-2 ml-2">
               <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
             </span>
-          </a>
+          </Link>
         </div>
       </div>
+
+      {/* Contact us form started */}
       <div className="lg:w-[45%] w-full lg:mt-[-300px] mt-0">
         <div className="bg-white text-black shadow-2xl rounded px-8 py-14 ">
           <h1 className="text-3xl">Get Started </h1>
@@ -103,7 +113,7 @@ export default function Contact() {
               required
             />
             <input
-              type="text"
+              type="email"
               className={inputStyle}
               placeholder="Work email*"
               required
@@ -126,10 +136,14 @@ export default function Contact() {
               placeholder="Company website*"
               required
             />
+
+
             <div className="border rounded border-slate-400 focus:border-paypalBlue-400 outline-none pt-7 pb-1 px-4 relative">
               <div className="text-slate-500 absolute top-1 left-4">
                 Country*
               </div>
+
+              {/* showing selected country */}
               <div
                 onClick={() => {
                   setCountryDrop((prev) => !prev);
@@ -143,6 +157,8 @@ export default function Contact() {
                   <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
                 )}
               </div>
+
+              {/* dropdown to select country */}
               {countryDrop && (
                 <div className="max-h-56 overflow-y-auto">
                   {countryList.map((item, index) => (
@@ -161,10 +177,13 @@ export default function Contact() {
               )}
             </div>
 
+
             <div className="border rounded border-slate-400 focus:border-paypalBlue-400 outline-none pt-7 pb-1 px-4 relative">
               <div className="text-slate-500 absolute top-1 left-4 text-xs md:text-base">
                 Estimated annual sales*
               </div>
+
+              {/* showing selected sale */}
               <div
                 onClick={() => setSaleDrop((prev) => !prev)}
                 className="w-full flex justify-between"
@@ -176,6 +195,8 @@ export default function Contact() {
                   <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
                 )}
               </div>
+
+              {/* dropdown to select sale */}
               {saleDrop && (
                 <div>
                   {dropdown.sale.map((item, index) => (
@@ -198,6 +219,8 @@ export default function Contact() {
               <div className="text-slate-500 absolute top-1 left-4 text-xs xl:text-base">
                 Do you already have a PayPal Business account?*
               </div>
+
+              {/* showing selected yes/no */}
               <div
                 onClick={() => setYesDrop((prev) => !prev)}
                 className="w-full flex justify-between"
@@ -209,6 +232,8 @@ export default function Contact() {
                   <FontAwesomeIcon icon={faAngleUp} className="text-2xl" />
                 )}
               </div>
+
+              {/* dropdown to select yes/no */}
               {yesDrop && (
                 <div>
                   {dropdown.yes.map((item, index) => (
@@ -226,13 +251,15 @@ export default function Contact() {
                 </div>
               )}
             </div>
+
+
             <div>
               <input type="checkbox" id="check" className="mr-4" required />
               <label htmlFor="check" className="text-sm">
-                I have read and accepted the
-                <a href="/" className="text-paypalBlue-400">
+                I have read and accepted the 
+                <Link to="/" className="text-paypalBlue-400">
                   PayPal Privacy Policy
-                </a>
+                </Link>
                 .
               </label>
             </div>

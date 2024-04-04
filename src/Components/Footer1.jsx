@@ -1,5 +1,6 @@
 import React from "react";
 import { footer1List } from "../assets/data/footer1";
+import { Link } from "react-router-dom";
 
 export default function Footer1() {
   const footer1 ={
@@ -22,10 +23,10 @@ export default function Footer1() {
             <div>
               <ul>
                 <li className="mb-3">
-                  <a className={`font-semibold text-slate-800 ${footer1.textHover}`} href="/">Introduction</a>
+                  <Link className={`font-semibold text-slate-800 ${footer1.textHover}`} to="/">Introduction</Link>
                 </li>
                 <li>
-                  <a className={`font-semibold text-slate-800 ${footer1.textHover}`} href="/">Getting Started</a>
+                  <Link className={`font-semibold text-slate-800 ${footer1.textHover}`} to="/">Getting Started</Link>
                 </li>
               </ul>
             </div>
@@ -36,7 +37,7 @@ export default function Footer1() {
                   footer1List.map((item, index) => {
                     return (
                       <li key={index}>
-                        <a className={footer1.textHover} href="/" >{item}</a>
+                        <Link className={footer1.textHover} to="/" >{item}</Link>
                       </li>
                     )
                   })
@@ -54,7 +55,7 @@ export default function Footer1() {
           <div className="flex justify-between gap-8 flex-wrap">
             <div>
               <p className="font-semibold text-slate-800 mb-3">Introduction</p>
-              <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}>Marketplaces & Partners</a>
+              <Link to="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}>Marketplaces & Partners</Link>
             </div>
             <div>
               <p className="font-semibold text-slate-800 mb-3">Platform & Solutions</p>
@@ -63,7 +64,7 @@ export default function Footer1() {
                   footer1List.map((item, index) => {
                     return (
                       <li key={index}>
-                        <a className={footer1.textHover} href="/" >{item}</a>
+                        <Link className={footer1.textHover} to="/" >{item}</Link>
                       </li>
                     )
                   })
@@ -81,13 +82,13 @@ export default function Footer1() {
           <div>
             <ul className="grid gap-3">
               <li>
-                <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Nonprofits</a>
+                <Link to="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Nonprofits</Link>
               </li>
               <li>
-                <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Pricing</a>
+                <Link to="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Pricing</Link>
               </li>
               <li>
-                <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Resource Center</a>
+                <Link to="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Resource Center</Link>
               </li>
             </ul>
           </div>

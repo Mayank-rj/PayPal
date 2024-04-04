@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { footer2List } from "../assets/data/footer2";
 
 export default function Footer2() {
@@ -5,6 +6,8 @@ export default function Footer2() {
   return (
     <>
       <div className="px-6">
+
+        {/* PayPal image */}
         <div>
           <img
             className="h-12"
@@ -12,18 +15,21 @@ export default function Footer2() {
             alt="paypal-logo"
           />
         </div>
+
         <div className="flex justify-between my-4 gap-4 flex-wrap">
           <div>
             <ul className="flex gap-8 flex-wrap">
               {footer2List.list1.map((item, index) => (
                 <li key={index}>
-                  <a className={textStyle} href="/">
+                  <Link className={textStyle} to="/">
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
+
+          {/* Flag Image */}
           <div>
             <img
               className="h-6"
@@ -38,9 +44,9 @@ export default function Footer2() {
             <ul className="flex gap-8 flex-wrap">
             {footer2List.list2.map((item, index) => (
                 <li key={index}>
-                  <a className={textStyle} href="/">
+                  <Link className={textStyle} to="/">
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -51,9 +57,9 @@ export default function Footer2() {
               <li className="text-slate-600">&copy; 1999-2022 </li>
               {footer2List.list3.map((item, index) => (
                 <li key={index}>
-                  <a className={textStyle} href="/">
+                  <Link className={textStyle} to="/">
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
