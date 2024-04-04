@@ -3,9 +3,9 @@ import { footer1List } from "../assets/data/footer1";
 
 export default function Footer1() {
   const footer1 ={
-    heading : "font-bold text-md text-paypalBlue-800",
+    heading : "font-semibold text-lg text-paypalBlue-800",
     hr : "mb-6 mt-2 h-px bg-gray-200 border-0 dark:bg-slate-400",
-    textHover : "hover:text-paypalBlue-400"
+    textHover : "text-slate-700 hover:text-paypalBlue-400"
   } 
   return (
     <>
@@ -22,15 +22,15 @@ export default function Footer1() {
             <div>
               <ul>
                 <li className="mb-3">
-                  <a className={`font-bold ${footer1.textHover}`} href="/">Introduction</a>
+                  <a className={`font-semibold text-slate-800 ${footer1.textHover}`} href="/">Introduction</a>
                 </li>
                 <li>
-                  <a className={`font-bold ${footer1.textHover}`} href="/">Getting Started</a>
+                  <a className={`font-semibold text-slate-800 ${footer1.textHover}`} href="/">Getting Started</a>
                 </li>
               </ul>
             </div>
             <div>
-              <p className="font-bold mb-3">All Solutions</p>
+              <p className="font-semibold text-slate-800 mb-3">All Solutions</p>
               <ul className="grid gap-3">
                 {
                   footer1List.map((item, index) => {
@@ -53,11 +53,11 @@ export default function Footer1() {
           <hr className={footer1.hr} />
           <div className="flex justify-between gap-8 flex-wrap">
             <div>
-              <p className="font-bold mb-3">Introduction</p>
-              <a href="/" className={`font-bold ${footer1.textHover}`}>Marketplaces & Partners</a>
+              <p className="font-semibold text-slate-800 mb-3">Introduction</p>
+              <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}>Marketplaces & Partners</a>
             </div>
             <div>
-              <p className="font-bold mb-3">Platform & Solutions</p>
+              <p className="font-semibold text-slate-800 mb-3">Platform & Solutions</p>
               <ul className="grid gap-3">
               {
                   footer1List.map((item, index) => {
@@ -81,13 +81,13 @@ export default function Footer1() {
           <div>
             <ul className="grid gap-3">
               <li>
-                <a href="/" className={`font-bold ${footer1.textHover}`}> Nonprofits</a>
+                <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Nonprofits</a>
               </li>
               <li>
-                <a href="/" className={`font-bold ${footer1.textHover}`}> Pricing</a>
+                <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Pricing</a>
               </li>
               <li>
-                <a href="/" className={`font-bold ${footer1.textHover}`}> Resource Center</a>
+                <a href="/" className={`font-semibold text-slate-800 ${footer1.textHover}`}> Resource Center</a>
               </li>
             </ul>
           </div>

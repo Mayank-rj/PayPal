@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <>
       <header>
-        <nav className="h-16 flex px-4 items-center">
+        <nav className="h-20 flex px-4 items-center">
           <div className="mx-4">
             <img className="h-12" src={logo} alt="paypal-logo" />
           </div>
@@ -15,7 +15,7 @@ export default function Navbar() {
             <ul className="flex gap-x-4">
               <li>
                 <a
-                  className="text-paypalBlue-800 font-medium hover:text-paypalBlue-400"
+                  className="text-paypalBlue-800 font-base hover:text-paypalBlue-400"
                   href="/"
                 >
                   Personal
@@ -23,7 +23,7 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  className="text-paypalBlue-800 font-medium hover:text-paypalBlue-400"
+                  className="text-paypalBlue-800 font-base hover:text-paypalBlue-400"
                   href="/"
                 >
                   Business
@@ -31,7 +31,7 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  className="text-paypalBlue-800 font-medium hover:text-paypalBlue-400"
+                  className="text-paypalBlue-800 font-base hover:text-paypalBlue-400"
                   href="/"
                 >
                   Developer
@@ -39,7 +39,7 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  className="text-paypalBlue-800 font-medium hover:text-paypalBlue-400"
+                  className="text-paypalBlue-800 font-base hover:text-paypalBlue-400"
                   href="/"
                 >
                   Help
@@ -48,11 +48,11 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="ml-auto md:inline-block hidden">
-            <button className="border-2 border-paypalBlue-800 p-2 px-8 mx-2 rounded-3xl hover:bg-paypalBlue-800 hover:text-white">
+            <button className="border-2 border-paypalBlue-800 text-paypalBlue-800 p-2 px-8 mx-2 rounded-3xl hover:bg-paypalBlue-800 hover:text-white">
               Log In
             </button>
             <button
-              className="text-white border-2 border-paypalBlue-800 p-2 px-7 mx-2 rounded-3xl bg-paypalBlue-800 hover:bg-transparent hover:text-black hover:border-paypalBlue-800"
+              className="text-white border-2 border-paypalBlue-800 p-2 px-7 mx-2 rounded-3xl bg-paypalBlue-800 hover:bg-transparent hover:text-paypalBlue-800 hover:border-paypalBlue-800"
             >
               Sign Up
             </button>

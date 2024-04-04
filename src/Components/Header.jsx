@@ -3,7 +3,7 @@ import React from "react";
 export default function Header() {
   return (
     <div className="bg-paypalBlue-800 justify-center items-center px-2 md:items-start text-center md:text-left flex md:pl-14 flex-col gap-4" style={{height: "60vh"}}>
-      <h1 className="text-5xl font-bold text-white">
+      <h1 className="text-5xl font-light text-white">
         Connect with our <br /> sales team
       </h1>
       <p className="text-white tracking-wide">
